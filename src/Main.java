@@ -1,18 +1,21 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
 
-        Conta conta = new Conta("123", "01");
+        Cliente cliente = new Cliente("Cliente 1", "99999999", LocalDate.now(), new Conta("123", "01"));
 
-        System.out.println(conta.saldo);
+        System.out.println(cliente.getConta().saldo);
 
-        conta.deposita(100);
-        conta.deposita(200);
-        conta.saque(50);
+        cliente.getConta().deposita(100);
+        cliente.getConta().deposita(200);
+        cliente.getConta().saque(50);
 
-        System.out.println(conta.saldo);
+        System.out.println(cliente.getConta().saldo);
 
-        conta.exibeExtrato();
+        System.out.println("##### Extrato ######");
+        System.out.println(cliente.getNome());
+        cliente.getConta().exibeExtrato();
 
-//        System.out.println(conta.historicoTransacoes);
     }
 }
